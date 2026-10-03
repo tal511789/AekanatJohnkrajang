@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#061a2b" />
+    <meta name="description" content="ต้นแบบพอร์ตโฟลิโอห้องทำงาน 3D — คลิกจอคอมเพื่อสำรวจผลงาน" />
+  <!--  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23091e30'/%3E%3Crect x='11' y='17' width='42' height='29' rx='3' fill='none' stroke='%2399dcff' stroke-width='4'/%3E%3Cpath d='M23 54h18M32 46v8' stroke='%2399dcff' stroke-width='4'/%3E%3C/svg%3E" /> -->
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main id="app" aria-label="Interactive 3D portfolio">
+      <div id="scene" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <a class="brand symbol-brand" href="#room" id="brand" aria-label="กลับไปยังห้อง"></span>Aekanat&nbsp;&nbsp;&nbsp;Johnkrajang</span></a>
+        <nav class="top-nav" aria-label="ส่วนต่าง ๆ ของเว็บ"><button type="button" id="nav-work">Work</button><span>About</span><span>Services</span><span>Contact</span></nav>
+      </header>
+
+      <section id="intro" class="intro" aria-label="หน้าห้องทำงาน">
+        <h1>WEB<br /><em>DESIGN</em></h1>
+        <p>Thoughtful websites,<br />made to explore.</p>
+        <button id="enter-button" class="enter-button" type="button" aria-label="คลิกเพื่อดูผลงานบนจอคอม">
+          <span>View Work</span><span class="enter-icon">→</span>
+        </button>
+      </section>
+
+      <button id="monitor-hint" class="monitor-hint" type="button" aria-label="คลิกหน้าจอคอมเพื่อดูผลงาน"> 
+        <span class=""></span><span></span> 
+      </button>  
+
+      <div class="bottom-bar" id="bottom-bar"><span>My ROOM</span><span>--<span class="bottom-spark">✳</span></span></div>
+
+      <section class="detail" id="detail" aria-label="ผลงานบนหน้าจอ" aria-hidden="true">
+        <div class="detail-head"><span>My WORK</span><button id="back-button" type="button" class="back-button" aria-label="กลับไปยังห้อง"><span>BACK TO ROOM</span> <b>×</b></button></div>
+        <div class="project-layout">
+          <aside class="project-list" aria-label="เลือกผลงาน">
+            <span class="micro">ALL PROJECTS <span id="project-total">03</span></span>
+            <div id="project-picker" class="project-picker"></div>
+          </aside>
+          <div class="project-stage">
+            <div class="monitor-ui" aria-label="ภาพหรือวิดีโอผลงานที่เลือก">
+              <div class="screen-top"><span> My Work</span><span id="counter">01 / 03</span></div>
+              <div id="project-media" class="project-media"></div>
+              <div class="screen-bottom"><span id="project-index">PROJECT 01</span><span id="media-kind">IMAGE PREVIEW</span></div>
+            </div>
+            <div class="project-nav"><button id="prev-button" type="button" aria-label="ผลงานก่อนหน้า">←</button><span id="project-step">01 / 03</span><button id="next-button" type="button" aria-label="ผลงานถัดไป">→</button></div>
+          </div>
+          <aside class="project-info" aria-live="polite">
+            <span class="category" id="project-category">INTERACTIVE WEB</span>
+            <h2 id="project-title">Lume</h2>
+            <div class="project-tags" id="project-tags"></div>
+            <p id="project-description"></p>
+            <div class="video-actions" id="video-actions" hidden><button id="video-toggle" type="button">หยุดวิดีโอชั่วคราว</button><button id="audio-toggle" type="button">เปิดเสียง</button></div>
+            <span class="project-meta">My Project</span>
+          </aside>
+        </div>
+        <div class="project-filmstrip" id="project-filmstrip" aria-label="ภาพตัวอย่างผลงาน"></div>
+      </section>
+
+      <div class="loading" id="loading" role="status" aria-live="polite"><span>กำลังสร้างห้อง</span><span class="loading-bar"><i></i></span></div>
+      <div class="mobile-note">ลากเพื่อมองรอบห้อง · แตะที่จอคอมเพื่อดูผลงาน</div>
+    </main>
+    <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+    <script type="module" src="./studio.js"></script>
+    
+  </body>
+</html>
