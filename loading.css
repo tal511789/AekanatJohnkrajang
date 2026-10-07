@@ -1,0 +1,127 @@
+/* Full-screen startup gate, independent of the 3D room's interface. */
+.loading {
+    background: #0b0f18;
+    gap: 0;
+    overflow: hidden;
+    pointer-events: auto
+}
+
+.loading.is-gone {
+    pointer-events: none
+}
+
+.loader-portrait {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(365px, 68vw, 46vh);
+    aspect-ratio: 365 / 330;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    --fill: 0%
+}
+
+.loader-portrait-image {
+    position: absolute;
+    max-width: none;
+    width: 208%;
+    height: auto;
+    left: 50%;
+    top: -12.7%;
+    transform: translateX(-50%);
+    pointer-events: none
+}
+
+.loader-portrait-base {
+    filter: grayscale(1) brightness(.53)
+}
+
+.loader-portrait-color {
+    clip-path: inset(calc(100% - var(--fill)) 0 0 0)
+}
+
+.loader-track {
+    position: absolute;
+    left: 50%;
+    top: calc(50% + min(365px, 68vw, 46vh) * 330 / 365 / 2 + 20px);
+    width: min(138px, 40vw);
+    height: 2px;
+    transform: translateX(-50%);
+    background: #f6f8ff24;
+    border-radius: 4px;
+    overflow: hidden
+}
+
+.loader-track span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: #e9f0fa;
+    box-shadow: 0 0 10px #c0dbff;
+    transition: width .12s linear
+}
+
+.loader-percent {
+    position: absolute;
+    bottom: clamp(30px, 6vh, 74px);
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #f4f6fc;
+    font: 700 clamp(19px, 2vw, 24px)/1.2 'DM Sans', Arial, sans-serif;
+    letter-spacing: .16em;
+    font-variant-numeric: tabular-nums
+}
+
+.loader-message {
+    position: absolute;
+    bottom: clamp(80px, 12vh, 130px);
+    left: 20px;
+    right: 20px;
+    text-align: center;
+    color: #e5efff;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 1.5;
+    margin: 0
+}
+
+.loader-message:empty {
+    display: none
+}
+
+.loader-retry {
+    position: absolute;
+    bottom: clamp(140px, 20vh, 200px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #a5d7ff;
+    background: #184469;
+    color: #fff;
+    border-radius: 7px;
+    padding: 10px 18px;
+    font-size: 14px;
+    letter-spacing: 0
+}
+
+.loader-retry[hidden] {
+    display: none
+}
+
+@media(max-height:580px) {
+    .loader-percent {
+        bottom: 18px
+    }
+
+    .loader-track {
+        top: calc(50% + min(365px, 68vw, 46vh) * 330 / 365 / 2 + 8px)
+    }
+
+    .loader-message {
+        bottom: 51px
+    }
+
+    .loader-retry {
+        bottom: 95px
+    }
+}

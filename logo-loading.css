@@ -1,0 +1,136 @@
+/* A color logo revealed from bottom to top. Its original PNG is not edited. */
+#loading.logo-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: #071b2c;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+  pointer-events: auto;
+  gap: 0;
+  font-family: "Anakotmai", sans-serif;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+
+#loading.logo-loading.is-gone {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.logo-loader-content {
+  width: min(420px, 85vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-loader-image {
+  --fill: 0%;
+  width: min(300px, 60vw, 42vh);
+  aspect-ratio: 926 / 879;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Crop transparent margins through layout. These coordinates match the supplied PNG. */
+.logo-loader-image img {
+  position: absolute;
+  width: 221.1663067%;
+  height: 131.0580205%;
+  max-width: none;
+  left: -64.2548596%;
+  top: -12.741752%;
+  display: block;
+  pointer-events: none;
+}
+
+.logo-loader-base {
+  filter: grayscale(1) brightness(.8);
+  opacity: .72;
+}
+
+.logo-loader-color {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(calc(100% - var(--fill)) 0 0 0);
+}
+
+.logo-loader-track {
+  margin-top: 28px;
+  width: 120px;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #9cdcff25;
+}
+
+.logo-loader-track span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: #9cdfff;
+}
+
+.logo-loader-percent {
+  margin-top: 18px;
+  font-family: "Anakotmai", sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: .06em;
+  color: #e8f6ff;
+  font-variant-numeric: tabular-nums;
+}
+
+.logo-loader-message {
+  min-height: 1.5em;
+  margin: 12px 0 0;
+  color: #9fbed1;
+  font-family: "Anakotmai", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.logo-loader-retry {
+  margin-top: 14px;
+  padding: 9px 17px;
+  border-radius: 8px;
+  border: 1px solid #90c9eb80;
+  background: #17415d;
+  color: #e5f6ff;
+  font-family: "Anakotmai", sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.logo-loader-retry[hidden] {
+  display: none;
+}
+
+@media(max-height:500px) {
+  .logo-loader-image {
+    width: min(200px, 43vh);
+  }
+
+  .logo-loader-track {
+    margin-top: 12px;
+  }
+
+  .logo-loader-percent {
+    margin-top: 10px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  #loading.logo-loading {
+    transition: none;
+  }
+}

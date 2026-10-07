@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#061a2b" />
+    <meta name="description" content="ต้นแบบพอร์ตโฟลิโอห้องทำงาน 3D — คลิกจอคอมเพื่อสำรวจผลงาน" />
+  <!--  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23091e30'/%3E%3Crect x='11' y='17' width='42' height='29' rx='3' fill='none' stroke='%2399dcff' stroke-width='4'/%3E%3Cpath d='M23 54h18M32 46v8' stroke='%2399dcff' stroke-width='4'/%3E%3C/svg%3E" /> -->
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./hover-labels.css" />
+    <link rel="stylesheet" href="./logo-loading.css" />
+  </head>
+  <body>
+    <main id="app" aria-label="Interactive 3D portfolio">
+      <div id="scene" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <a class="brand symbol-brand" href="#room" id="brand" aria-label="กลับไปยังห้อง"></span>Aekanat&nbsp;&nbsp;&nbsp;Johnkrajang</span></a>
+        <nav class="top-nav" aria-label="ส่วนต่าง ๆ ของเว็บ"><button type="button" id="nav-work">Work</button><button type="button" id="nav-board">About</button><button type="button" id="nav-books">Services</button><button type="button" id="nav-plant">Contact</button></nav>
+      </header>
+
+      <section id="intro" class="intro" aria-label="หน้าห้องทำงาน">
+        <h1>WEB<br /><em>DESIGN</em></h1>
+        <p>Thoughtful websites,<br />made to explore.</p>
+        <button id="enter-button" class="enter-button" type="button" aria-label="คลิกเพื่อดูผลงานบนจอคอม">
+          <span>View Work</span><span class="enter-icon">→</span>
+        </button>
+      </section>
+
+      <button id="monitor-hint" class="monitor-hint" type="button" aria-label="คลิกหน้าจอคอมเพื่อดูผลงาน"> 
+        <span class=""></span><span></span> 
+      </button>  
+
+      <div class="bottom-bar" id="bottom-bar"><span>My ROOM</span><span>--<span class="bottom-spark">✳</span></span></div>
+
+      <section class="detail" id="detail" aria-label="ผลงานบนหน้าจอ" aria-hidden="true">
+        <div class="detail-head"><span>My Work</span><button id="back-button" type="button" class="back-button" aria-label="กลับไปยังห้อง"><span>Back</span> <b>×</b></button></div>
+        <div class="project-layout">
+          <aside class="project-list" aria-label="เลือกผลงาน">
+            <span class="micro">ALL PROJECTS <span id="project-total">03</span></span>
+            <div id="project-picker" class="project-picker"></div>
+          </aside>
+          <div class="project-stage">
+            <div class="monitor-ui" aria-label="ภาพหรือวิดีโอผลงานที่เลือก">
+              <div class="screen-top"><span> My Work</span><span id="counter">01 / 03</span></div>
+              <div id="project-media" class="project-media"></div>
+              <div class="screen-bottom"><span id="project-index">PROJECT 01</span><span id="media-kind">IMAGE PREVIEW</span></div>
+            </div>
+            <div class="project-nav"><button id="prev-button" type="button" aria-label="ผลงานก่อนหน้า">←</button><span id="project-step">01 / 03</span><button id="next-button" type="button" aria-label="ผลงานถัดไป">→</button></div>
+          </div>
+          <aside class="project-info" aria-live="polite">
+            <span class="category" id="project-category">INTERACTIVE WEB</span>
+            <h2 id="project-title">Lume</h2>
+            <div class="project-tags" id="project-tags"></div>
+            <p id="project-description"></p>
+            <div class="video-actions" id="video-actions" hidden><button id="video-toggle" type="button">หยุดวิดีโอชั่วคราว</button><button id="audio-toggle" type="button">เปิดเสียง</button></div>
+            <span class="project-meta">© 2026 Aekanat Johnkrajang. All rights reserved.</span>
+          </aside>
+        </div>
+        <div class="project-filmstrip" id="project-filmstrip" aria-label="ภาพตัวอย่างผลงาน"></div>
+      </section>
+
+      <section id="object-detail" class="object-detail" hidden aria-label="มุมกระดาน ต้นไม้ หรือชั้นหนังสือ">
+        <div class="detail-head"><span id="object-view-label">ABOUT</span><button id="object-back-button" type="button" class="back-button"><span>Back</span><b aria-hidden="true">×</b></button></div>
+        <article id="about-panel" class="about-panel" hidden aria-labelledby="about-title">
+          <div class="about-portrait">
+            <div class="about-avatar-slot">
+              <!-- ใส่ avatar: แทน SVG และ span ด้านล่างด้วย <img src="./assets/about-avatar.png" alt="Aekanat Johnkrajang" class="about-avatar" /> -->
+              <div class="about-avatar-slot">
+                <img
+                  src="./assets/about-avatar.png"
+                  alt="รูปของฉัน"
+                  class="about-avatar"
+                />
+              </div>
+
+            </div>
+            <span class="about-portrait-label">Aekanat Johnkrajang</span>
+          </div>
+          <div class="about-copy">
+            <span class="about-eyebrow">ประวัติส่วนตัว</span>
+            <h2 id="about-title">About <em>Me</em></h2>
+            <!-- แก้ชื่อ คำแนะนำตัว และข้อความได้ตรงนี้ -->
+            <p class="about-name">สวัสดี ฉันชื่อ Aekanat Johnkrajang</p>
+            <p class="about-description">ฉันสนใจงานออกแบบ งานกราฟิก และงาน 3D </p>
+            <p class="about-description">ห้องนี้เป็นพื้นที่รวบรวมผลงาน ลองเดินชมและทำความรู้จักฉันผ่านงานแต่ละชิ้นได้เลย</p>
+            <div class="about-interests" aria-label="ความสนใจ"><span>Web Design</span><span>Artwork</span><span>3D Models</span></div>
+            <button id="about-work-button" class="about-work-button" type="button">ดูผลงานของฉัน <span aria-hidden="true">↗</span></button>
+          </div>
+        </article>
+      </section>
+      <div class="loading logo-loading" id="loading" aria-label="กำลังโหลดเว็บไซต์">
+        <div class="logo-loader-content">
+          <div class="logo-loader-image" id="loader-logo" aria-hidden="true">
+            <img class="logo-loader-base" id="loader-logo-base" src="./assets/logo.png" alt="" width="2048" height="1152" fetchpriority="high" />
+            <div class="logo-loader-color"><img src="./assets/logo.png" alt="" width="2048" height="1152" /></div>
+          </div>
+          <div class="logo-loader-track" aria-hidden="true"><span id="loader-track-fill"></span></div>
+          <output class="logo-loader-percent" id="loader-percent" aria-label="ความคืบหน้าการโหลด">0%</output>
+          <p class="logo-loader-message" id="loader-message" role="status" aria-live="polite">กำลังเตรียมห้องของฉัน</p>
+          <button class="logo-loader-retry" id="loader-retry" type="button" hidden>ลองโหลดอีกครั้ง</button>
+        </div>
+      </div>
+      <div class="mobile-note">ลากเพื่อมองรอบห้อง · แตะที่จอคอมเพื่อดูผลงาน</div>
+    </main>
+    <dialog id="image-viewer" class="image-viewer" aria-labelledby="viewer-title">
+      <div class="image-viewer-head"><h2 id="viewer-title">ดูผลงาน</h2><button id="viewer-close" type="button" autofocus aria-label="ปิดรูปขยาย">ปิด ×</button></div>
+      <div id="viewer-viewport" class="viewer-viewport"><img id="viewer-image" alt="" draggable="false" /></div>
+      <div class="viewer-controls"><button id="viewer-minus" type="button" aria-label="ซูมออก">−</button><output id="viewer-zoom" aria-live="polite">100%</output><button id="viewer-plus" type="button" aria-label="ซูมเข้า">+</button><button id="viewer-reset" type="button">พอดีจอ</button></div>
+    </dialog>
+    <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+    <script type="module" src="./logo-loading.js"></script>
+    <script type="module" src="./studio.js"></script>
+    
+  </body>
+</html>
