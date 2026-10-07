@@ -3,7 +3,7 @@ import { loadingGate, watchStartupMedia } from './logo-loading.js'
 
 // The supplied Spline room is exported without materials; colors are applied below.
 // Leave this empty to view the sample room built in code instead.
-const ROOM_MODEL_URL = './models/3_d_room.glb'
+const ROOM_MODEL_URL = '/models/3_d_room.glb'
 const MONITOR_MESH_NAME = 'Monitor'
 // Use 'object' for one piece of furniture, or 'room' for a complete room.
 const MODEL_MODE = 'room'
